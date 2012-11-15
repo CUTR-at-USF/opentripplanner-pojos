@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<project
+    name="CommentOutXmlAnnotations"    
+    default="commentOutXmlAnnotations" >
+
+    <!-- This Ant script comments out the following lines from the Java files in this directory
+    	 and all subdirectories:
+    	-import javax.xml.bind.annotation.*;
+    	-@Xml*
+    	
+    	To run this in Eclipse, right-click on this file and click "Run As->Ant Build".
+    	    	
+     -->
+
+    <target
+        name="commentOutXmlAnnotations"        
+        description="Run" >
+            <replaceregexp
+                byline="false"
+                flags="g" >
+
+                <regexp pattern="(@Xml[A-Za-z0-9]+(\([^)]+\))?|import javax\.xml\.bind\.annotation\.[A-Za-z0-9.]+;)[ \t]*(\r?\n)" />
+
+                <substitution expression="/*\1*/\3" />
+
+                <fileset dir="." >
+                    <include name="**/*.java" />
+                </fileset>
+            </replaceregexp>        
+    </target> 
+</project>

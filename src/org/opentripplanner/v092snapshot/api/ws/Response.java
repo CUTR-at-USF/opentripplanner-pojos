@@ -11,60 +11,25 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-package org.opentripplanner.api.ws;
+package org.opentripplanner.v092snapshot.api.ws;
 
-import org.opentripplanner.api.model.TripPlan;
+import java.util.HashMap;
+
 import org.opentripplanner.api.model.error.PlannerError;
+import org.opentripplanner.v092snapshot.api.model.TripPlan;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-///*import javax.xml.bind.annotation.XmlElement;*/
-///*import javax.xml.bind.annotation.XmlRootElement;*/
-//import org.opentripplanner.api.model.error.PlannerError;
 
-
-/**
- *
- */
-///*@XmlRootElement*/
+/** Represents a trip planner response, will be serialized into XML or JSON by Jersey */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
-    
-    //private List<Entry> requestParameters;
-
-	
+    private HashMap<String, String> requestParameters;
     private TripPlan plan;
-
-	
     private PlannerError error = null;
 
-	public static class Entry {
-		
-	    private String key;
-		
-	    private String value;
-	    
-	    public String getKey() {
-			return key;
-		}
-	    
-	    public void setKey(String key) {
-			this.key = key;
-		}
-	}
-	
-//    public Response() {
-//    	requestParameters = new ArrayList<Entry>();
-//    }
-
-//    public Response(Request req) {
-//        this.requestParameters = req.getParameters();
-//    }
-//
-//    public Response(Request req, TripPlan plan) {
-//        this(req);
-//        this.plan = plan;
-//    }
+    public Response() {
+    }
 
     // note order the getters below is semi-important, in that that's the order printed by jersey in the return
     // e.g., from a human readable standpoint, it's tradition to have request params, followed by plan, followed by errors
@@ -72,13 +37,13 @@ public class Response {
     /**
      * A dictionary of the parameters provided in the request that triggered this response.
      */
-//    public HashMap<String, String> getRequestParameters() {
-//        return requestParameters;
-//    }
+    public HashMap<String, String> getRequestParameters() {
+        return requestParameters;
+    }
 
-//    public void setRequestParameters(HashMap<String, String> requestParameters) {
-//        this.requestParameters = requestParameters;
-//    }
+    public void setRequestParameters(HashMap<String, String> requestParameters) {
+        this.requestParameters = requestParameters;
+    }
 
     /**
      * The actual trip plan.
@@ -100,6 +65,5 @@ public class Response {
 
     public void setError(PlannerError error) {
         this.error = error;
-    }    
-
+    }
 }

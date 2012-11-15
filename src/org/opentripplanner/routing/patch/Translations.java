@@ -16,14 +16,18 @@ package org.opentripplanner.routing.patch;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Translations implements Serializable {
     //private static final long serialVersionUID = 2163930399727941628L;
         
     @Getter @Setter private ArrayList<Entry> entry;
+    
+    @Getter @Setter protected String value;
     
     
     //    public TranslatedString(String language, String note) {
@@ -31,6 +35,28 @@ public class Translations implements Serializable {
 //    }
 
     public Translations() {
+    }
+        
+    public Translations(String value){
+    	this.value = value;
+    }
+    
+    //Need the two following getter/setters to handle English language in JSON:
+    //TODO - find a better way to handle this that works for all languages
+//    "alertHeaderText":{
+//        "translations":{
+//           "en":"south end of crossing is to a curb abutting grass, no sidewalk on south side of street"
+//        },
+//        "someTranslation":"south end of crossing is to a curb abutting grass, no sidewalk on south side of street"
+//     },
+    
+    
+    public String getEn(){
+    	return value;
+    }
+    
+    public void setEn(String en){
+    	value = en;
     }
     
 //    public TranslatedString(String v) {

@@ -111,11 +111,11 @@ public class Place {
 //    	return departure;
 //    }
 
-//    @XmlAttribute
+//    /*@XmlAttribute*/
     
     public String orig;
 
-//    @XmlAttribute
+//    /*@XmlAttribute*/
     
     public String zoneId;
 
@@ -124,7 +124,7 @@ public class Place {
      * Returns the geometry in GeoJSON format
      * @return
      */
-    //@XmlElement
+    ///*@XmlElement*/
     String getGeometry() {
 
         return Constants.GEO_JSON_POINT + lon + "," + lat + Constants.GEO_JSON_TAIL;

@@ -59,7 +59,7 @@ public class TripPlan {
     /** 
      * A list of possible itineraries. 
      */
-    //@XmlElementWrapper(name="itineraries")
+    ///*@XmlElementWrapper(name="itineraries")*/
     //@SerializedName("itineraries")
     
     public List<Itinerary> itineraries = new ArrayList<Itinerary>();
