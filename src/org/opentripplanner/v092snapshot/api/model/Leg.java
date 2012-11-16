@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,19 +37,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * particular vehicle (or on foot).
  */
 
-public class Leg {
+@Data public class Leg {
 
     /**
      * The date and time this leg begins.
      */
-    public Calendar startTime = null;
+	public String startTime = null;
     
     /**
      * The date and time this leg ends.
      */
-    public Calendar endTime = null;
+    public String endTime = null;
     
-    @Getter @Setter public long duration;
+    public long duration;
     
     /**
      * The distance traveled while traversing the leg in meters.
@@ -159,7 +160,7 @@ public class Leg {
      */
     /*@XmlElementWrapper(name = "intermediateStops")*/
     @JsonProperty(value="intermediateStops")
-    public List<Place> stop;
+    @Getter @Setter public List<Place> stop;
 
     /**
      * The leg's geometry.
@@ -170,7 +171,7 @@ public class Leg {
      * A series of turn by turn instructions used for walking, biking and driving. 
      */
     /*@XmlElementWrapper(name = "steps")*/
-    @JsonProperty(value="steps")
+    @Getter @Setter @JsonProperty(value="steps")
     public List<WalkStep> walkSteps;
 
     /**
@@ -256,13 +257,13 @@ public class Leg {
 //        }
 //    }
 
-    public void setTimeZone(TimeZone timeZone) {
-        Calendar calendar = Calendar.getInstance(timeZone);
-        calendar.setTime(startTime.getTime());
-        startTime = calendar;
-        calendar = Calendar.getInstance(timeZone);
-        calendar.setTime(endTime.getTime());
-        endTime = calendar;
-        agencyTimeZoneOffset = timeZone.getOffset(startTime.getTimeInMillis());
-    }
+//    public void setTimeZone(TimeZone timeZone) {
+//        Calendar calendar = Calendar.getInstance(timeZone);
+//        calendar.setTime(startTime.getTime());
+//        startTime = calendar;
+//        calendar = Calendar.getInstance(timeZone);
+//        calendar.setTime(endTime.getTime());
+//        endTime = calendar;
+//        agencyTimeZoneOffset = timeZone.getOffset(startTime.getTimeInMillis());
+//    }
 }
