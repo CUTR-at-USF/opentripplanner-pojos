@@ -17,6 +17,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * <p><strong>Fare support has not yet been implemented.</strong>
  * </p><p>
@@ -26,32 +31,36 @@ public class Fare {
     protected static final Logger LOGGER = Logger.getLogger(Fare.class.getCanonicalName());
     
     private static final String TAG = "OTP";
+    
+    @Getter @Setter public FareType key = null;
+	
+	@Getter @Setter public Money regular = null;
 
     public static enum FareType {
         regular, student, senior, tram, special
     }
     
-    public static class Entry{
-    	
-    	public FareType key = null;
-    	
-    	public Money value = null;
-    	
-    	public Entry(){
-    	}
-    	
-    	public Entry(FareType ft, Money m){
-    		key = ft;
-    		value = m;
-    	}
-    }
+//    public static class Entry{
+//    	
+//    	@Getter @Setter public FareType key = null;
+//    	
+//    	@Getter @Setter public Money value = null;
+//    	
+//    	public Entry(){
+//    	}
+//    	
+//    	public Entry(FareType ft, Money m){
+//    		key = ft;
+//    		value = m;
+//    	}
+//    }
     
     /**
      * A mapping from {@link FareType} to {@link Money}.
      */
     
 //    public HashMap<FareType, Money> fare;
-    public ArrayList<Entry> fare;
+     @Getter @Setter public ArrayList<Fare> fare;
     
 //    @Element(required=false)
 //    public Entry entry = new Entry();
@@ -69,51 +78,51 @@ public class Fare {
 //    	return entry;
 //    }
 
-    public Fare() {
-//    	Log.v(TAG, "Fare constructor");
-//        fare = new HashMap<FareType, Money>();
-    	fare = new ArrayList<Entry>();
-    }
+//    public Fare() {
+////    	Log.v(TAG, "Fare constructor");
+////        fare = new HashMap<FareType, Money>();
+//    	fare = new ArrayList<Entry>();
+//    }
 
 //    public void addFare(FareType fareType, WrappedCurrency currency, int cents) {
 //    	Log.v(TAG, "add Fare");
 //        fare.put(fareType, new Money(currency, cents));
 //    }
     
-    public void addFare(FareType fareType, WrappedCurrency currency, int cents) {
-//    	Log.v(TAG, "add Fare");
-        fare.add(new Entry(fareType, new Money(currency, cents)));
-    }
+//    public void addFare(FareType fareType, WrappedCurrency currency, int cents) {
+////    	Log.v(TAG, "add Fare");
+//        fare.add(new Entry(fareType, new Money(currency, cents)));
+//    }
+//    
+//    public void addFare(Entry entry) {
+////    	Log.v(TAG, "add Fare");
+//    	fare.add(entry);
+//    }
     
-    public void addFare(Entry entry) {
-//    	Log.v(TAG, "add Fare");
-    	fare.add(entry);
-    }
+//    public Money getFare(FareType type) {
+////    	Log.v(TAG, "get Fare");
+//    	for(int i=0; i<fare.size(); i++){
+//    		Entry e = fare.get(i);
+//    		if(e.key.equals(type)) {
+//    			return e.value;
+//    		}
+//    	}
+//        return null;
+//    }
     
-    public Money getFare(FareType type) {
-//    	Log.v(TAG, "get Fare");
-    	for(int i=0; i<fare.size(); i++){
-    		Entry e = fare.get(i);
-    		if(e.key.equals(type)) {
-    			return e.value;
-    		}
-    	}
-        return null;
-    }
-    
-    public String toString() {
-    	StringBuffer buffer = new StringBuffer("Fare(");
-    	for (Entry en : fare) {
-    		Money cost = en.value;
-    		buffer.append("[");
-    		buffer.append(en.key);
-    		buffer.append(":");
-    		buffer.append(cost.toString());
-    		buffer.append("], ");
-    	}
-    	buffer.append(")");
-    	return buffer.toString();
-    }
+//    public String toString() {
+//    	StringBuffer buffer = new StringBuffer("Fare(");
+//    	for (Entry en : fare) {
+//    		Money cost = en.value;
+//    		buffer.append("[");
+//    		buffer.append(en.key);
+//    		buffer.append(":");
+//    		buffer.append(cost.toString());
+//    		buffer.append("], ");
+//    	}
+//    	buffer.append(")");
+//    	return buffer.toString();
+//    }
     
 //    public String toString() {
 //        StringBuffer buffer = new StringBuffer("Fare(");

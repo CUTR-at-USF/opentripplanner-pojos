@@ -18,6 +18,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TimeZone;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /*import javax.xml.bind.annotation.XmlElement;*/
 /*import javax.xml.bind.annotation.XmlElementWrapper;*/
 
@@ -80,7 +83,7 @@ public class Itinerary {
     /**
      * The cost of this trip
      */
-    public Fare fare = new Fare();
+    @Getter @Setter public Fare fare;
 
     /**
      * A list of Legs. Each Leg is either a walking (cycling, car) portion of the trip, or a transit

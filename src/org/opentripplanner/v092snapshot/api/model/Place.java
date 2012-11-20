@@ -14,6 +14,9 @@
 package org.opentripplanner.v092snapshot.api.model; 
 
 import java.util.Calendar;
+
+import lombok.Getter;
+import lombok.Setter;
 /*import javax.xml.bind.annotation.XmlAttribute;*/
 /*import javax.xml.bind.annotation.XmlElement;*/
 
@@ -66,15 +69,17 @@ public class Place {
 
     /*@XmlAttribute*/
     public String zoneId;
+    
+    @Getter @Setter public String geometry;
 
     /**
      * Returns the geometry in GeoJSON format
      * @return
      */
     /*@XmlElement*/
-    String getGeometry() {
-        return Constants.GEO_JSON_POINT + lon + "," + lat + Constants.GEO_JSON_TAIL;
-    }
+//    String getGeometry() {
+//        return Constants.GEO_JSON_POINT + lon + "," + lat + Constants.GEO_JSON_TAIL;
+//    }
 
     public Place() {
     }

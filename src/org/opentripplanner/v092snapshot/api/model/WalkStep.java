@@ -27,6 +27,8 @@ import org.opentripplanner.api.model.RelativeDirection;
 import org.opentripplanner.routing.patch.Alerts;
 import org.opentripplanner.v092snapshot.common.model.P2;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Represents one instruction in walking directions. Three examples from New York City:
  * <p>
@@ -52,6 +54,7 @@ import org.opentripplanner.v092snapshot.common.model.P2;
  * everything else false <br/>
  * </p>
  * */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WalkStep {
 
     /**
@@ -108,8 +111,11 @@ public class WalkStep {
      * The elevation profile as a comma-separated list of x,y values. 
      * x is the distance from the start of the step, y is the elevation at this distance.
      */
+    //TODO - fix elevation
+    
     /*@XmlTransient*/
-    @Getter @Setter public Elevation[] elevation;
+    //@Getter @Setter public Elevation[] elevation; - work on Tampa OTP instance with v0.9.2-SNAPSHOT
+    //@Getter @Setter Elevation elevation; - works on Portland OTP instance with v0.9.1-SNAPSHOT
 
     /*@XmlElement*/
     public List<Alerts> alerts;

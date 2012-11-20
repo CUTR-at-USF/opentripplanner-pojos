@@ -16,6 +16,9 @@ package org.opentripplanner.routing.core;
 import java.text.NumberFormat;
 import java.util.Currency;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 /**
  * <strong>Fare support is very, very preliminary.</strong>
@@ -27,7 +30,7 @@ public class Money implements Comparable<Money> {
      * The currency of the money.
      */
 	
-    private WrappedCurrency currency = null;
+    @Getter @Setter private WrappedCurrency currency = null;
     /**
      * The actual currency value in decimal fixed-point, with the default number of fraction digits
      * from currency after the decimal point.

@@ -16,50 +16,55 @@ package org.opentripplanner.routing.core;
 import java.util.Currency;
 import java.util.Locale;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class WrappedCurrency {
-    private Currency value;
+    @Getter @Setter private Currency currency;
+    
+    @Getter @Setter private String currencyCode;
+    
+    @Getter @Setter String symbol;
+    
+    @Getter @Setter int defaultFractionDigits;
     
     public WrappedCurrency() {
-        value = null;
+        currency = null;
     }
-
+    
     public WrappedCurrency(Currency value) {
-        this.value = value;
+        this.currency = value;
     }
     
     public WrappedCurrency(String name) {
-        value = Currency.getInstance(name);
+        currency = Currency.getInstance(name);
     }
 
-    public int getDefaultFractionDigits() {
-        return value.getDefaultFractionDigits();
-    }
+//    public int getDefaultFractionDigits() {
+//        return currency.getDefaultFractionDigits();
+//    }
     
-    public String getCurrencyCode() {
-        return value.getCurrencyCode();
-    }
+//    public String getCurrencyCode() {
+//        return currency.getCurrencyCode();
+//    }
     
-    public String getSymbol() {
-        return value.getSymbol();
-    }
+//    public String getSymbol() {
+//        return value.getSymbol();
+//    }
     
     public String getSymbol(Locale l) {
-        return value.getSymbol(l);
+        return currency.getSymbol(l);
     }
 
     public String toString() {
-        return value.toString();
+        return currency.toString();
     }
     
     public boolean equals(Object o) {
         if (o instanceof Currency) {
-            return value.equals(o);
+            return currency.equals(o);
         }
         WrappedCurrency c = (WrappedCurrency) o;
-        return value.equals(c.value);
-    }
-    
-    public Currency getCurrency() {
-        return value;
+        return currency.equals(c.currency);
     }
 }
