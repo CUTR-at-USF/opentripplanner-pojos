@@ -13,9 +13,15 @@
 
 package org.opentripplanner.v092snapshot.api.model;
 
+import java.io.Serializable;
+
 /*import javax.xml.bind.annotation.XmlElement;*/
 
-public class Note {
+public class Note implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5583945110855320172L;
 	/*@XmlElement*/
 	public String text;
 

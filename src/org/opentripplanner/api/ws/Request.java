@@ -293,7 +293,6 @@ public class Request implements RequestInf {
        return modes;
    }
 
-   @Override
    public void removeMode(TraverseMode mode) {
        modes.setMode(mode, false);
        paramPush(MODE, modes);

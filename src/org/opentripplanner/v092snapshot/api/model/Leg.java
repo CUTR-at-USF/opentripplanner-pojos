@@ -13,6 +13,7 @@
 
 package org.opentripplanner.v092snapshot.api.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -37,9 +38,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * particular vehicle (or on foot).
  */
 
-@Data public class Leg {
+@Data public class Leg implements Serializable{
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7657410568807464781L;
+
+	/**
      * The date and time this leg begins.
      */
 	public String startTime = null;

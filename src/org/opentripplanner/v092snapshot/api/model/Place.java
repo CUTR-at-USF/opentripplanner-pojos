@@ -13,6 +13,7 @@
 
 package org.opentripplanner.v092snapshot.api.model; 
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import lombok.Getter;
@@ -26,9 +27,14 @@ import org.opentripplanner.util.Constants;
 /** 
 * A Place is where a journey starts or ends, or a transit stop along the way.
 */ 
-public class Place {
+public class Place implements Serializable{
 
-    /** 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2731076807632135897L;
+
+	/** 
      * For transit stops, the name of the stop.  For points of interest, the name of the POI.
      */
     public String name = null;

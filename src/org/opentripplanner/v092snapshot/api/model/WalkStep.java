@@ -14,6 +14,7 @@
 
 package org.opentripplanner.v092snapshot.api.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.Getter;
@@ -55,9 +56,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * </p>
  * */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WalkStep {
+public class WalkStep implements Serializable{
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4318821610981183969L;
+
+	/**
      * The distance in meters that this step takes.
      */
     public double distance = 0;

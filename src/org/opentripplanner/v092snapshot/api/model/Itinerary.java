@@ -12,6 +12,7 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 package org.opentripplanner.v092snapshot.api.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
@@ -29,9 +30,14 @@ import org.opentripplanner.routing.core.Fare;
 /**
  * An Itinerary is one complete way of getting from the start location to the end location.
  */
-public class Itinerary {
+public class Itinerary implements Serializable{
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8579533939962545543L;
+
+	/**
      * Duration of the trip on this itinerary, in milliseconds.
      */
     public long duration = 0;
