@@ -14,6 +14,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package org.opentripplanner.api.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -48,7 +49,12 @@ import org.opentripplanner.routing.patch.Alerts;
  * everything else false <br/>
  * </p>
  * */
-public class WalkStep {
+public class WalkStep implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2461090829521531602L;
 
 	/**
 	 * The distance in meters that this step takes.

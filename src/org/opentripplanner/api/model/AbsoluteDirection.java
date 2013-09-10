@@ -13,9 +13,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 package org.opentripplanner.api.model;
 
+import java.io.Serializable;
+
 /** 
 * An absolute cardinal or intermediate direction.
 */
-public enum AbsoluteDirection {
+public enum AbsoluteDirection implements Serializable {
    NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST
 }

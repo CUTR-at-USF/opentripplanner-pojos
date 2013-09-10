@@ -13,6 +13,7 @@
 
 package org.opentripplanner.api.model; 
 
+import java.io.Serializable;
 import java.text.ParseException;
 
 import java.text.SimpleDateFormat;
@@ -30,8 +31,13 @@ import lombok.Setter;
 /** 
 * A Place is where a journey starts or ends, or a transit stop along the way.
 */ 
-public class Place {
-    protected static final Logger LOGGER = Logger.getLogger(Place.class.getCanonicalName());
+public class Place implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6464934892065481936L;
+
+	protected static final Logger LOGGER = Logger.getLogger(Place.class.getCanonicalName());
     
     private static final String TAG = "OTP";
 

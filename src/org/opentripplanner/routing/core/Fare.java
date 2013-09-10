@@ -13,6 +13,7 @@
 
 package org.opentripplanner.routing.core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
@@ -27,8 +28,13 @@ import lombok.Setter;
  * </p><p>
  * Fare is a set of fares for different classes of users.</p>
  */
-public class Fare {
-    protected static final Logger LOGGER = Logger.getLogger(Fare.class.getCanonicalName());
+public class Fare implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2979309709691997235L;
+
+	protected static final Logger LOGGER = Logger.getLogger(Fare.class.getCanonicalName());
     
     private static final String TAG = "OTP";
     
@@ -36,7 +42,7 @@ public class Fare {
 	
 	@Getter @Setter public Money regular = null;
 
-    public static enum FareType {
+    public static enum FareType implements Serializable{
         regular, student, senior, tram, special
     }
     

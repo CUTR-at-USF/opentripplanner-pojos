@@ -1,10 +1,17 @@
 package org.opentripplanner.routing.patch;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
-public class Entry{
+public class Entry implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2026335084427623584L;
+
 	@Getter @Setter private String key = null;
 	
 	@Getter @Setter private String value = null;

@@ -14,7 +14,7 @@
 package org.opentripplanner.routing.core;
 
 public enum OptimizeType {
-    TRANSFERS, QUICK, SAFE,
+    TRANSFERS, QUICK, SAFE, TRIANGLE,
     /* no code for these yet 
      */
     GREENWAYS,

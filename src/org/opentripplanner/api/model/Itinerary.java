@@ -12,6 +12,7 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 package org.opentripplanner.api.model;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,8 +31,13 @@ import org.opentripplanner.routing.core.Fare;
 /**
  * An Itinerary is one complete way of getting from the start location to the end location.
  */
-public class Itinerary {
+public class Itinerary implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2962716082548564923L;
+
 	private static final String TAG = "OTP";
 	
 	public Itinerary(){

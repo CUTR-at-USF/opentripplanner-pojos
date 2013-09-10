@@ -13,14 +13,20 @@
 
 package org.opentripplanner.routing.core;
 
+import java.io.Serializable;
 import java.util.Currency;
 import java.util.Locale;
 
 import lombok.Getter;
 import lombok.Setter;
 
-public class WrappedCurrency {
-    @Getter @Setter private Currency currency;
+public class WrappedCurrency implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7887233247171375107L;
+
+	@Getter @Setter private Currency currency;
     
     @Getter @Setter private String currencyCode;
     

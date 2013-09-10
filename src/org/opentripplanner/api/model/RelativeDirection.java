@@ -13,12 +13,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 package org.opentripplanner.api.model;
 
+import java.io.Serializable;
+
 /**
 * Represents a turn direction, relative to the current heading.
 * 
 * CIRCLE_CLOCKWISE and CIRCLE_CLOCKWISE are used to represent traffic circles. 
 * 
 */
-public enum RelativeDirection {
+public enum RelativeDirection implements Serializable{
 	HARD_LEFT, LEFT, SLIGHTLY_LEFT, CONTINUE, SLIGHTLY_RIGHT, RIGHT, HARD_RIGHT, CIRCLE_CLOCKWISE, CIRCLE_COUNTERCLOCKWISE, ELEVATOR, UTURN_LEFT, UTURN_RIGHT;
 }

@@ -13,6 +13,7 @@
 
 package org.opentripplanner.routing.core;
 
+import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.Currency;
 
@@ -24,9 +25,13 @@ import lombok.Setter;
  * <strong>Fare support is very, very preliminary.</strong>
  *
  */
-public class Money implements Comparable<Money> {
+public class Money implements Comparable<Money>, Serializable {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4741816148450653508L;
+	/**
      * The currency of the money.
      */
 	

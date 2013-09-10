@@ -13,12 +13,18 @@
 
 package org.opentripplanner.api.model;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
 
-public class Note {
+public class Note implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7749510083758752385L;
 	@Getter @Setter public String text;
 
 	public Note() {

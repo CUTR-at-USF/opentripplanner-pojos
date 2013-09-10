@@ -13,6 +13,7 @@
 
 package org.opentripplanner.api.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +28,13 @@ import org.opentripplanner.routing.patch.Alerts;
  * particular vehicle (or on foot).
  */
 //@JsonIgnoreProperties(ignoreUnknown = true)
-public class Leg {
+public class Leg implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4767989098027129527L;
+
 	private static final String TAG = "OTP";
 	
 	public Leg() {
