@@ -55,7 +55,18 @@ public class Request implements RequestInf {
     * optimize for transit time.
     */
    private OptimizeType optimize = OptimizeType.QUICK;
-   
+   /**
+    * The weight of the time factor on bike planing
+    */
+   private double triangleTimeFactor;
+   /**
+    * The weight of the slope factor on bike planing
+    */
+   private double triangleSlopeFactor;
+   /**
+    * The weight of the safety factor on bike planing
+    */
+   private double triangleSafetyFactor;
    /**
     * The date/time that the trip should depart (or arrive, for requests where arriveBy is true)
     */
@@ -382,4 +393,31 @@ public class Request implements RequestInf {
    public String[] getUnpreferredRoutes() {
        return unpreferredRoutes;
    }
+
+	public double getTriangleTimeFactor() {
+		return triangleTimeFactor;
+	}
+	
+	public void setTriangleTimeFactor(double triangleTimeFactor) {
+       	paramPush(TRIANGLE_TIME_FACTOR, triangleTimeFactor);
+		this.triangleTimeFactor = triangleTimeFactor;
+	}
+	
+	public double getTriangleSlopeFactor() {
+		return triangleSlopeFactor;
+	}
+	
+	public void setTriangleSlopeFactor(double triangleSlopeFactor) {
+		paramPush(TRIANGLE_SLOPE_FACTOR, triangleSlopeFactor);
+		this.triangleSlopeFactor = triangleSlopeFactor;
+	}
+	
+	public double getTriangleSafetyFactor() {
+		return triangleSafetyFactor;
+	}
+	
+	public void setTriangleSafetyFactor(double triangleSafetyFactor) {
+		paramPush(TRIANGLE_SAFETY_FACTOR, triangleSafetyFactor);
+		this.triangleSafetyFactor = triangleSafetyFactor;
+	}
 }

@@ -32,6 +32,10 @@ public interface RequestInf {
 	public static String MODE = "mode";
 	public static String NUMBER_ITINERARIES = "numItineraries";
 	public static String SHOW_INTERMEDIATE_STOPS = "showIntermediateStops";
+	
+	public static String TRIANGLE_TIME_FACTOR = "triangleTimeFactor";
+	public static String TRIANGLE_SLOPE_FACTOR = "triangleSlopeFactor";
+	public static String TRIANGLE_SAFETY_FACTOR = "triangleSafetyFactor";
 
 	public static String PREFERRED_ROUTES = "preferredRoutes";
 	public static String UNPREFERRED_ROUTES = "unpreferredRoutes";
@@ -152,5 +156,35 @@ public interface RequestInf {
 	 *         transit legs
 	 */
 	public boolean getShowIntermediateStops();
+	
+	/**
+	 * @return the weight of the time factor on bike planing
+	 */
+	public double getTriangleTimeFactor();
+	
+	/**
+	 * Sets  the weight of the time factor on bike planing
+	 */
+	public void setTriangleTimeFactor(double triangleTimeFactor);
+	
+	/**
+	 * @return  the weight of the slope factor on bike planing
+	 */
+	public double getTriangleSlopeFactor();
+	
+	/**
+	 * Sets  the weight of the slope factor on bike planing
+	 */
+	public void setTriangleSlopeFactor(double triangleSlopeFactor);
+	
+	/**
+	 * @return  the weight of the safety factor on bike planing
+	 */
+	public double getTriangleSafetyFactor();
+	
+	/**
+	 * Sets  the weight of the safety factor on bike planing
+	 */
+	public void setTriangleSafetyFactor(double triangleSafetyFactor);
 
 }
