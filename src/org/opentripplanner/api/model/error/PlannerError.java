@@ -29,7 +29,7 @@ public class PlannerError {
     private int    id;
 
 	
-    private Message msg;
+    private String msg;
 
 	
     private List<String> missing = new ArrayList<String>();
@@ -46,7 +46,7 @@ public class PlannerError {
         noPath = np;
     }
 
-    public PlannerError(Message msg) {
+    public PlannerError(String msg) {
         setMsg(msg);
     }
 
@@ -59,7 +59,7 @@ public class PlannerError {
 //        this.msg = msg;
 //    }
 
-    public Message getMsg() {
+    public String getMsg() {
         return msg;
     }
 
@@ -67,7 +67,7 @@ public class PlannerError {
 //        this.msg = msg;
 //    }
 
-    public void setMsg(Message msg) {
+    public void setMsg(String msg) {
 //        this.msg = msg.get();
 //        this.id  = msg.getId();
     	this.msg = msg;
