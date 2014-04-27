@@ -311,16 +311,17 @@ public class TraverseModeSet implements Cloneable {
     }
 
     public String toString() {
-        String out = "";
+        StringBuilder out = new StringBuilder();
         for (TraverseMode mode : TraverseMode.values()) {
-            if ((modes & getMaskForMode(mode)) != 0) {
-                if (out != "") {
-                    out += ","; //removed space!!!
+            int mask = getMaskForMode(mode);
+            if (mask != 0 && (modes & mask) == mask) {
+                if (out.length() != 0) {
+                    out.append(",");
                 }
-                out += mode;
+                out.append(mode);
             }
         }
-        return out; //"TraverseMode (" + out + ")";
+        return out.toString(); //return "TraverseMode (" + out + ")";
     }
     
     @Override
