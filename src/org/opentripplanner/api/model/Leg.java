@@ -37,14 +37,26 @@ public class Leg implements Serializable{
 
 	private static final String TAG = "OTP";
 	
-	public Leg() {
-	}
+    /**
+     * For transit leg, the offset from the scheduled departure-time of the boarding stop in this leg.
+     * "scheduled time of departure at boarding stop" = startTime - departureDelay
+     */
+    public int departureDelay = 0;
+    /**
+     * For transit leg, the offset from the scheduled arrival-time of the alighting stop in this leg.
+     * "scheduled time of arrival at alighting stop" = endTime - arrivalDelay
+     */
+    public int arrivalDelay = 0;
+    /**
+     * Whether there is real-time data about this Leg
+     */
+    public Boolean realtime = false;
 
     /**
-     * The date and time this leg begins.
+     * Is this a frequency-based trip with non-strict departure times?
      */
-	//TODO - fix dates
-	
+    public Boolean isNonExactFrequency = null;
+
     public String startTime = null;
 //	public Date startTime = null;
 //    
@@ -64,9 +76,12 @@ public class Leg implements Serializable{
 //    }
     
     /**
-     * The date and time this leg ends.
+     * The best estimate of the time between two arriving vehicles. This is particularly important
+     * for non-strict frequency trips, but could become important for real-time trips, strict
+     * frequency trips, and scheduled trips with empirical headways.
      */
-	
+    public Integer headway = null;
+
     public String endTime = null;
 //	public Date endTime = null;
 //    
@@ -124,6 +139,24 @@ public class Leg implements Serializable{
     public String routeColor = null;
 
     /**
+     * For transit legs, the type of the route. Non transit -1
+     * When 0-7: 0 Tram, 1 Subway, 2 Train, 3 Bus, 4 Ferry, 5 Cable Car, 6 Gondola, 7 Funicular
+     * When equal or highter than 100, it is coded using the Hierarchical Vehicle Type (HVT) codes from the European TPEG standard
+     * Also see http://groups.google.com/group/gtfs-changes/msg/ed917a69cf8c5bef
+     */
+//    @XmlAttribute
+//    @JsonSerialize
+    public Integer routeType = null;
+
+    /**
+     * For transit legs, the ID of the route.
+     * For non-transit legs, null.
+     */
+//    @XmlAttribute
+//    @JsonSerialize
+    public String routeId = null;
+
+    /**
      * For transit leg, the route's text color (if one exists). For non-transit legs, null.
      */
     
@@ -141,6 +174,13 @@ public class Leg implements Serializable{
     ///*@XmlAttribute*/
     
     public String tripShortName = null;
+
+    /**
+     * For transit leg, the trip's block ID (if one exists). For non-transit legs, null.
+     */
+//    @XmlAttribute
+//    @JsonSerialize
+    public String tripBlockId = null;
 
     /**
      * For transit legs, the headsign of the bus or train being used. For non-transit legs, null.
@@ -161,6 +201,14 @@ public class Leg implements Serializable{
     public String tripId = null;
     
     /**
+     * For transit legs, the service date of the trip.
+     * For non-transit legs, null.
+     */
+//    @XmlAttribute
+//    @JsonSerialize
+    public String serviceDate = null;
+
+    /**
      * The Place where the leg originates.
      */
     
@@ -179,7 +227,8 @@ public class Leg implements Serializable{
      */
     ///*@XmlElementWrapper(name = "intermediateStops")*/
     //@SerializedName("intermediateStops")
-    
+    public List<Place> stop;
+
     @Getter @Setter public List<Place> intermediateStops;
     
     /**

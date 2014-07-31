@@ -119,8 +119,9 @@ public class WalkStep implements Serializable{
 	 * The elevation profile as a comma-separated list of x,y values. 
 	 * x is the distance from the start of the step, y is the elevation at this distance.
 	 */
-	
-	@Getter @Setter public String elevation;
+
+    //TODO - fix elevation
+//	@Getter @Setter public String elevation;
 
 	
 	@Getter @Setter public List<Alerts> alerts;
