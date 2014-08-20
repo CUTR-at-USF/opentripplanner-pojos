@@ -13,10 +13,16 @@
 
 package org.opentripplanner.routing.core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TraverseModeSet implements Cloneable {
+public class TraverseModeSet implements Cloneable, Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 4761234567827129527L;
 
     private static final int MODE_BICYCLE = 1;
 
