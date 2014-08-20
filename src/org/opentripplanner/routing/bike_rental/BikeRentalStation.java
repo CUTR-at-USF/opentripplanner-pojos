@@ -16,7 +16,7 @@ package org.opentripplanner.routing.bike_rental;
 import java.io.Serializable;
 
 /*
-/*import javax.xml.bind.annotation.XmlAttribute;*/
+import javax.xml.bind.annotation.XmlAttribute;
 */
 
 /*
@@ -26,19 +26,19 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class BikeRentalStation implements Serializable {
     private static final long serialVersionUID = 8311460609708089384L;
 
-/*    /*@XmlAttribute*/
+/*    @XmlAttribute
     @JsonSerialize*/
     public String id;
-/*    /*@XmlAttribute*/
+/*    @XmlAttribute
     @JsonSerialize*/
     public String name;
-/*    /*@XmlAttribute*/
+/*    @XmlAttribute
     @JsonSerialize*/
     public double x, y; //longitude, latitude
-/*    /*@XmlAttribute*/
+/*    @XmlAttribute
     @JsonSerialize*/
     public int bikesAvailable = Integer.MAX_VALUE;
-/*    /*@XmlAttribute*/
+/*    @XmlAttribute
     @JsonSerialize*/
     public int spacesAvailable = Integer.MAX_VALUE;
     
@@ -46,7 +46,7 @@ public class BikeRentalStation implements Serializable {
      * Whether this station is static (usually coming from OSM data) or a real-time source. If no real-time data, users should take
      * bikesAvailable/spacesAvailable with a pinch of salt, as they are always the total capacity divided by two. Only the total is meaningful.
      */
-/*    /*@XmlAttribute*/
+/*    @XmlAttribute
     @JsonSerialize*/
     public boolean realTimeData = true;
 

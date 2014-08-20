@@ -144,7 +144,7 @@ public class Leg implements Serializable{
      * When equal or highter than 100, it is coded using the Hierarchical Vehicle Type (HVT) codes from the European TPEG standard
      * Also see http://groups.google.com/group/gtfs-changes/msg/ed917a69cf8c5bef
      */
-//    /*@XmlAttribute*/
+//    @XmlAttribute
 //    @JsonSerialize
     public Integer routeType = null;
 
@@ -152,7 +152,7 @@ public class Leg implements Serializable{
      * For transit legs, the ID of the route.
      * For non-transit legs, null.
      */
-//    /*@XmlAttribute*/
+//    @XmlAttribute
 //    @JsonSerialize
     public String routeId = null;
 
@@ -178,7 +178,7 @@ public class Leg implements Serializable{
     /**
      * For transit leg, the trip's block ID (if one exists). For non-transit legs, null.
      */
-//    /*@XmlAttribute*/
+//    @XmlAttribute
 //    @JsonSerialize
     public String tripBlockId = null;
 
@@ -204,7 +204,7 @@ public class Leg implements Serializable{
      * For transit legs, the service date of the trip.
      * For non-transit legs, null.
      */
-//    /*@XmlAttribute*/
+//    @XmlAttribute
 //    @JsonSerialize
     public String serviceDate = null;
 
