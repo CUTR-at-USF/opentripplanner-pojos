@@ -104,6 +104,16 @@ public class Request implements RequestInf {
     * List of unpreferred routes.
     */
    private String[] unpreferredRoutes;
+
+    public boolean getBikeRental() {
+        return bikeRental;
+    }
+
+    public void setBikeRental(boolean bikeRental) {
+        this.bikeRental = bikeRental;
+    }
+
+    private boolean bikeRental;
    
    /** 
     * The complete list of parameters.
