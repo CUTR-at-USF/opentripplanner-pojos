@@ -23,13 +23,13 @@ import java.nio.charset.Charset;
 //import javax.ws.rs.Path;
 //import javax.ws.rs.Produces;
 //import javax.ws.rs.core.MediaType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+/*import javax.xml.bind.annotation.XmlElement;*/
+/*import javax.xml.bind.annotation.XmlRootElement;*/
 
 import org.opentripplanner.common.MavenVersion;
 
 //@Path("/")
-@XmlRootElement 
+/*@XmlRootElement*/
 public class ServerInfo {
 //    static final String Q = ";qs=0.5";
     
@@ -46,13 +46,13 @@ public class ServerInfo {
     Adding Lombok @Getter does not work because the name of the auto-generated getNCores getter 
     function confuses JSON field capitalization. */
 
-    @XmlElement 
+    /*@XmlElement*/
     public MavenVersion serverVersion/* = MavenVersion.VERSION*/;
     
-    @XmlElement 
+    /*@XmlElement*/
     public String cpuName = "unknown";
     
-    @XmlElement 
+    /*@XmlElement*/
     public int nCores = 0;
 
     /* It would make sense to have one object containing maven, git, and hardware subobjects. */
