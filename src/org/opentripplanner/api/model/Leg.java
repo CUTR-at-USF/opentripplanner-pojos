@@ -50,7 +50,7 @@ public class Leg implements Serializable{
     /**
      * Whether there is real-time data about this Leg
      */
-    public Boolean realtime = false;
+    public Boolean realTime = false;
 
     /**
      * Is this a frequency-based trip with non-strict departure times?
@@ -314,28 +314,28 @@ public class Leg implements Serializable{
         }
     }
 
-    public void addAlert(Alerts alert) {
-        if (notes == null) {
-            notes = new ArrayList<Note>();
-        }
-        if (alerts == null) {
-            alerts = new ArrayList<Alerts>();
-        }
-        String text = alert.getAlertHeaderText().getSomeTranslation();
-        if (text == null) {
-            text = alert.getAlertHeaderText().getSomeTranslation();
-        }
-        if (text == null) {
-            text = alert.alertUrl.getSomeTranslation();
-        }
-        
-        if (!notes.contains(text)) {
-            notes.add(new Note(text));
-        }
-        if (!alerts.contains(alert)) {
-            alerts.add(alert);
-        }
-    }
+//    public void addAlert(Alerts alert) {
+//        if (notes == null) {
+//            notes = new ArrayList<Note>();
+//        }
+//        if (alerts == null) {
+//            alerts = new ArrayList<Alerts>();
+//        }
+//        String text = alert.getAlertHeaderText().getSomeTranslation();
+//        if (text == null) {
+//            text = alert.getAlertHeaderText().getSomeTranslation();
+//        }
+//        if (text == null) {
+//            text = alert.alertUrl.getSomeTranslation();
+//        }
+//
+//        if (!notes.contains(text)) {
+//            notes.add(new Note(text));
+//        }
+//        if (!alerts.contains(alert)) {
+//            alerts.add(alert);
+//        }
+//    }
     
     
     /**
