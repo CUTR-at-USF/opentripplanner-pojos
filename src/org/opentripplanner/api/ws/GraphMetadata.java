@@ -13,6 +13,7 @@
 
 package org.opentripplanner.api.ws;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
 import org.opentripplanner.routing.core.TraverseMode;
@@ -25,8 +26,9 @@ import org.opentripplanner.routing.core.TraverseMode;
 //import com.vividsolutions.jts.geom.Coordinate;
 //import com.vividsolutions.jts.geom.Envelope;
 
-public class GraphMetadata {
+public class GraphMetadata implements Serializable {
 
+    private static final long serialVersionUID = 4087543218027129527L;
 
     /**
      * The bounding box of the graph, in decimal degrees.
