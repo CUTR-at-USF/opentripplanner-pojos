@@ -58,11 +58,16 @@ public class BikeRentalStation implements Serializable {
      * Jackson only supports "true" or "false" as string values for booleans, so setter must be defined manually.
      */
     public void setRealTimeData(String value){
-        if (value.contains("yes")){
+        if (value.contains("true")) {
             this.realTimeData = true;
-        }
-        else{
+        } else if (value.contains("false")) {
             this.realTimeData = false;
+        } else {
+            if (value.contains("yes")) {
+                this.realTimeData = true;
+            } else {
+                this.realTimeData = false;
+            }
         }
     }
     
