@@ -11,77 +11,81 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-package org.opentripplanner.api.model; 
+package org.opentripplanner.api.model;
 
 import java.io.Serializable;
 import java.text.ParseException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Logger; 
+import java.util.logging.Logger;
 
 import org.opentripplanner.util.Constants;
 
 import lombok.Getter;
 import lombok.Setter;
 
-//import org.onebusaway.gtfs.model.AgencyAndId;
-//import org.opentripplanner.util.Constants; 
+import javax.xml.bind.annotation.XmlAttribute;
 
-/** 
+//import org.onebusaway.gtfs.model.AgencyAndId;
+//import org.opentripplanner.util.Constants;
+
+/**
 * A Place is where a journey starts or ends, or a transit stop along the way.
-*/ 
+*/
 public class Place implements Serializable{
     /**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 6464934892065481936L;
 
 	protected static final Logger LOGGER = Logger.getLogger(Place.class.getCanonicalName());
-    
+
     private static final String TAG = "OTP";
 
-    /** 
+    /**
      * For transit stops, the name of the stop.  For points of interest, the name of the POI.
      */
-    
+
     @Getter @Setter public String name = null;
 
-    /** 
+    /**
      * The ID of the stop.  Depending on the transit agency, this may or may not be something that
      * users care about.
      */
-    
+
     @Getter @Setter public AgencyAndId stopId = null;
-    
-    /** 
+
+    /**
      * The "code" of the stop. Depending on the transit agency, this is often
      * something that users care about.
      */
-    
+
     @Getter @Setter public String stopCode = null;
+
+    @Getter @Setter public String platformCode = null;
 
     /**
      * The longitude of the place.
      */
-    
+
     @Getter @Setter public Double lon = null;
-    
+
     /**
      * The latitude of the place.
      */
-    
+
     @Getter @Setter public Double lat = null;
-    
+
     /**
      * The time the rider will arrive at the place.
      */
-    
+
     @Getter @Setter public String arrival = null;
 //    public Date arrival = null;
 //    @Element(required=false)
 //    public void setArrival(Date entry){
-//    	SimpleDateFormat parser = 
+//    	SimpleDateFormat parser =
 //    			new SimpleDateFormat("yyyy-MM-d'T'HH:mm:ssZ");
 //    	Log.v(TAG, "setArrival Place");
 //    	try {
@@ -89,7 +93,7 @@ public class Place implements Serializable{
 //		} catch (ParseException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
-//		}  
+//		}
 //    }
 //    @Element(required=false)
 //    public Date getArrival(){
@@ -98,19 +102,19 @@ public class Place implements Serializable{
     /**
      * The time the rider will depart the place.
      */
-    
+
     @Getter @Setter public String departure = null;
 //    public Date departure = null;
 //    @Element(required=false)
 //    public void setDeparture(Date d){
-//    	SimpleDateFormat parser = 
+//    	SimpleDateFormat parser =
 //    			new SimpleDateFormat("yyyy-MM-d'T'HH:mm:ssZ");
 //    	try {
 //			departure = parser.parse(d.toString());
 //		} catch (ParseException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
-//		}  
+//		}
 //    }
 //    @Element(required=false)
 //    public Date getDeparture(){
@@ -118,12 +122,23 @@ public class Place implements Serializable{
 //    }
 
 //    /*@XmlAttribute*/
-    
-    public String orig;
+
+    @Getter @Setter public String orig;
 
 //    /*@XmlAttribute*/
-    
-    public String zoneId;
+
+    @Getter @Setter public String zoneId;
+
+    @Getter @Setter public Integer stopIndex;
+
+    @Getter @Setter public Integer stopSequence;
+
+    @Getter @Setter public VertexType vertexType;
+
+    /**
+     * In case the vertex is of type Bike sharing station.
+     */
+    @Getter @Setter public String bikeShareId;
 
 
     /**
@@ -135,9 +150,9 @@ public class Place implements Serializable{
 
         return Constants.GEO_JSON_POINT + lon + "," + lat + Constants.GEO_JSON_TAIL;
     }
-    
+
     //TODO remove or fix!
-    
+
     public String geometry = "";
 
     public Place() {
