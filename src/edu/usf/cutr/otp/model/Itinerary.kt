@@ -1,7 +1,5 @@
 package edu.usf.cutr.otp.model
 
-import org.opentripplanner.routing.core.Fare
-
 
 data class Itinerary (
     val duration: Int? = null,
