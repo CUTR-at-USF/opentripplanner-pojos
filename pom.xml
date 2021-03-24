@@ -6,7 +6,7 @@
   
   <name>opentripplanner-pojos</name>
   <description>Plain Old Java Objects (POJOs) used for deserializing OpenTripPlanner server responses on Android devices.</description>
-  
+
   <issueManagement>
     <system>GitHub</system>
     <url>https://github.com/CUTR-at-USF/opentripplanner-pojos/issues</url>
@@ -176,6 +176,8 @@
   </distributionManagement>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <kotlin.version>1.4.10</kotlin.version>
     </properties>
 
