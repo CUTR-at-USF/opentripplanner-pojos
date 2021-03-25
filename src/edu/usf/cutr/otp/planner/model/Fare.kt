@@ -1,6 +1,6 @@
-package edu.usf.cutr.otp.model
+package edu.usf.cutr.otp.planner.model
 
-import java.util.HashMap
+import java.util.*
 
 
 class Fare {

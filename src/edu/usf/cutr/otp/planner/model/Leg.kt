@@ -1,4 +1,4 @@
-package edu.usf.cutr.otp.model
+package edu.usf.cutr.otp.planner.model
 
 
 data class Leg (

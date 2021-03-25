@@ -1,6 +1,6 @@
-package edu.usf.cutr.otp.model.error
+package edu.usf.cutr.otp.planner.model.error
 
-import java.util.HashMap
+import java.util.*
 
 
 data class Error

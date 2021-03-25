@@ -1,21 +1,13 @@
-package edu.usf.cutr.otp.model.error
+package edu.usf.cutr.otp.planner.model
 
-import edu.usf.cutr.otp.model.ElevationMetadata
-
-import edu.usf.cutr.otp.model.DebugOutput
-
-import edu.usf.cutr.otp.model.Plan
-
-import edu.usf.cutr.otp.model.RequestParameters
-
-import java.util.HashMap
+import java.util.*
 
 
 data class Planner
 (
     val requestParameters: RequestParameters? = null,
     val plan: Plan? = null,
-    val error: Error? = null,
+    val metadata: Metadata? = null,
     val debugOutput: DebugOutput? = null,
     val elevationMetadata: ElevationMetadata? = null,
     val additionalProperties: MutableMap<String, Any> = HashMap()
