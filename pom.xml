@@ -6,7 +6,7 @@
   
   <name>opentripplanner-pojos</name>
   <description>Plain Old Java Objects (POJOs) used for deserializing OpenTripPlanner server responses on Android devices.</description>
-  
+
   <issueManagement>
     <system>GitHub</system>
     <url>https://github.com/CUTR-at-USF/opentripplanner-pojos/issues</url>
@@ -20,35 +20,75 @@
     </license>
   </licenses>
   
-  <dependencies>       
-        <!-- Lombok, which auto-generates getter and setter methods via annotations -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.16</version>
-            <scope>provided</scope>
-        </dependency>
-        
+  <dependencies>
         <!-- Jackson, for JSON parsing -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.1.0</version>
-        </dependency>        
+        </dependency>
+      <dependency>
+          <groupId>org.jetbrains.kotlin</groupId>
+          <artifactId>kotlin-stdlib-jdk8</artifactId>
+          <version>${kotlin.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.jetbrains.kotlin</groupId>
+          <artifactId>kotlin-test</artifactId>
+          <version>${kotlin.version}</version>
+          <scope>test</scope>
+      </dependency>
   </dependencies>
-  
-  <build>
+
+    <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source/>
-          <target/>
-        </configuration>
-      </plugin>
-      <!-- Run Ant tasks - commentOutXmlAnnotations -->      
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <version>${kotlin.version}</version>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <phase>process-sources</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>test-compile</id>
+                    <phase>test-compile</phase>
+                    <goals>
+                        <goal>test-compile</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <jvmTarget>1.8</jvmTarget>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>2.3.2</version>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>testCompile</id>
+                    <phase>test-compile</phase>
+                    <goals>
+                        <goal>testCompile</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        <!-- Run Ant tasks - commentOutXmlAnnotations -->
       <!-- Uncomment this block to run commenOutXmlAnnotations on each "mvn clean" of project 
       
       <plugin>
@@ -98,5 +138,11 @@
       <url>https://github.com/CUTR-at-USF/cutr-mvn-repo/raw/master/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-  
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <kotlin.version>1.4.10</kotlin.version>
+    </properties>
+
 </project>
