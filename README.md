@@ -1,7 +1,7 @@
 opentripplanner-pojos
 =====================
 
-Plain Old Java Objects (POJOs) used for deserializing OpenTripPlanner server responses on Android devices.
+Plain Old Java Objects (POJOs) used for deserializing OpenTripPlanner v0 and v1 server responses on Android devices.
 
 Used by [OpenTripPlanner for Android](https://github.com/CUTR-at-USF/OpenTripPlanner-for-Android) and [OneBusAway Android](https://github.com/OneBusAway/onebusaway-android).
 
